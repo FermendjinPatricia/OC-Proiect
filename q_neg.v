@@ -3,8 +3,8 @@ module q_neg (
     output reg out
 );
     always @(posedge clk, negedge rst_b) begin
-        if(!rst_b) out <= 0;
+        if(!rst_b)  out <= 0;
         else if(c0) out <= 0;
-        else out <= q1;
+        else        out <= q1;
     end
 endmodule
