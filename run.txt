@@ -1,8 +1,8 @@
 # add all Verilog source files, separated by spaces
-set sourcefiles {fac.v parallel_adder.v}
+set sourcefiles {a.v boothr4.v control_unit.v count.v fac.v m.v mux.v parallel_adder.v q_neg.v q.v}
 
 # set name of the top module
-set topmodule parallel_adder_tb
+set topmodule boothr4_tb
 
 ###################################################
 #####DO NOT MODIFY THE SCRIPT BELLOW THIS LINE#####
