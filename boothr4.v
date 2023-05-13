@@ -90,7 +90,8 @@ module boothr4_tb;
                  .done(done),
                  .outbus(outbus));
                      
-    localparam CLOCK_CYCLES = 160, CLOCK_PERIOD = 100, RST_PULSE = 25, NUMBER_SETS = 10;
+    localparam CLOCK_CYCLES = 160, CLOCK_PERIOD = 100;
+    localparam RST_PULSE = 25, NUMBER_SETS = 10;
 
     initial begin 
         clk = 0;
@@ -99,7 +100,7 @@ module boothr4_tb;
     end
 
     initial begin 
-        rst_b = 0;
+        rst_b = 0; bgn = 1;
         #(RST_PULSE) rst_b = 1;
     end
 
@@ -112,11 +113,5 @@ module boothr4_tb;
             inbus = 8'bz;
             #(1200) inbus = 8'bz;
         end
-    end
-
-    initial begin
-        bgn = 1;
-        // #(100)
-        // bgn = 0;
     end
 endmodule 
