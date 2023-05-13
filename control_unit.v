@@ -2,8 +2,8 @@ module control_unit(
     input clk, rst_b, bgn, q1, q0, q, is_count_3,
     output c0, c1, c2, c3, c4, c5, c6, done
 );
-    localparam S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6;
-    localparam S7 = 7, S8 = 8, S9 = 9, S10 = 10;
+    localparam S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5;
+    localparam S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10;
     reg[3:0]state, state_next;
     integer operation_state;
     always @(*) begin
