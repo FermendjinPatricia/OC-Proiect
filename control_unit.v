@@ -1,8 +1,8 @@
 module control_unit(
     input clk, rst_b, bgn, q1, q0, q, is_count_3,
-    output c0, c1, c2, c3, c4, c5, c6, c7, done
+    output c0, c1, c2, c3, c4, c5, c6, done
 );
-    localparam S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11, S12 = 12, OP_STATE = 13;
+    localparam S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, OP_STATE = 11;
     reg[3:0]state, state_next;
     integer operation_state;
     always @(*) begin
@@ -28,9 +28,7 @@ module control_unit(
             S7: state_next = (is_count_3) ? S9 : S8;
             S8: state_next = OP_STATE;
             S9: state_next = S10;
-            S10: state_next = S11;
-            S11: state_next = S12;
-            S12: state_next = S0;
+            S10: state_next = S0;
         endcase
     end
 
@@ -41,8 +39,7 @@ module control_unit(
     assign c4 = (state == S4) | (state == S6);
     assign c5 = (state == S8) | (state == S9);
     assign c6 = (state == S10);
-    assign c7 = (state == S11);
-    assign done = (state == S12);
+    assign done = (state == S10);
 
     always @(posedge clk, negedge rst_b) 
         if(!rst_b) state <= 0;
