@@ -16,7 +16,7 @@ module boothr4(
                     .q1(reg_q[1]),
                     .q0(reg_q[0]),
                     .q(q),
-                    .is_count_3(cnt == 2'b11),
+                    .is_count_3(cnt[0] & cnt[1]),
                     .c0(c0),
                     .c1(c1),
                     .c2(c2),
